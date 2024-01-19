@@ -1,0 +1,32 @@
+site_name: Documentation
+theme:
+  name: material
+  logo: assets/logo.svg
+
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+  language: en
+  palette:
+    primary: "#3B43F2"
+    
+  
+
+markdown_extensions:
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      
+extra_css:
+  - stylesheets/extra.css
+
+
+copyright: |
+  &copy; 2024 <a href="https://solutions.io/"  target="_blank" rel="noopener">Solutions.io</a>  
