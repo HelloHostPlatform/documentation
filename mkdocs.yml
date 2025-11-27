@@ -1,4 +1,7 @@
-site_name: Documentation
+site_name: HelloHost Documentation
+site_url: https://docs.hellohost.nl
+site_description: Official documentation for the HelloHost subscription management platform
+
 theme:
   name: material
   logo: assets/logo.svg
@@ -6,6 +9,7 @@ theme:
   features:
     - navigation.tabs
     - navigation.sections
+    - navigation.expand
     - toc.integrate
     - navigation.top
     - search.suggest
@@ -17,16 +21,31 @@ theme:
   palette:
     primary: "#3B43F2"
     
-  
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Features: features.md
+  - Configuration: configuration.md
+  - Connectors: connectors.md
+  - How It Works: architecture.md
 
 markdown_extensions:
   - def_list
   - pymdownx.tasklist:
       custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - md_in_html
+  - tables
       
 extra_css:
   - stylesheets/extra.css
 
-
 copyright: |
-  &copy; 2024 <a href="https://solutions.io/"  target="_blank" rel="noopener">Solutions.io</a>  
+  &copy; 2025 <a href="https://solutions.io/"  target="_blank" rel="noopener">solutions.io</a>  
