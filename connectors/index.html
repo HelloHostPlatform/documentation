@@ -1,0 +1,1172 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Official documentation for the HelloHost subscription management platform">
+      
+      
+      
+        <link rel="canonical" href="https://docs.hellohost.nl/connectors/">
+      
+      
+        <link rel="prev" href="../configuration/">
+      
+      
+        <link rel="next" href="../architecture/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>Connectors - HelloHost Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#3B43F2" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#connectors" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="HelloHost Documentation" class="md-header__button md-logo" aria-label="HelloHost Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HelloHost Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Connectors
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../getting-started/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Getting Started
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../features/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Features
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../configuration/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Configuration
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Connectors
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../architecture/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  How It Works
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="HelloHost Documentation" class="md-nav__button md-logo" aria-label="HelloHost Documentation" data-md-component="logo">
+      
+  <img src="../assets/logo.svg" alt="logo">
+
+    </a>
+    HelloHost Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connectors
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connectors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#payments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Payments
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Payments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mollie-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mollie Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supported-payment-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported Payment Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Features
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#domain-registrars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Domain Registrars
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Domain Registrars">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oxxa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OXXA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#versio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Versio
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hosting-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hosting Servers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hosting Servers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpanel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cPanel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#directadmin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DirectAdmin
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#file-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        File Storage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="File Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amazon-s3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon S3
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#email-delivery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Email Delivery
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Email Delivery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#postmark" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Postmark
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#translation-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Translation Services
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Translation Services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deepl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DeepL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Monitoring
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Performance Monitoring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#google-lighthouse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Google Lighthouse
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connection-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection Issues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API Limits
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How It Works
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="connectors">Connectors</h1>
+<p>Several components of HelloHost are provided with the help of third party connections. API keys and configuration are required here.</p>
+<h2 id="payments">Payments</h2>
+<p>Currently the only supported payment provider for HelloHost is <strong>Mollie</strong>. If you want to allow users to pay invoices directly, an account here will be required.</p>
+<p>HelloHost supports payment links to any of your activated payment methods and direct debit payments with SEPA transfers or credit cards.</p>
+<p>More information about Mollie can be found here: <a href="https://www.mollie.com">https://www.mollie.com</a></p>
+<h3 id="mollie-setup">Mollie Setup</h3>
+<ol>
+<li>Create an account at <a href="https://www.mollie.com">Mollie.com</a></li>
+<li>Complete the onboarding process and verify your business</li>
+<li>Navigate to Developers &gt; API Keys in your Mollie dashboard</li>
+<li>Copy your API key (Live or Test)</li>
+<li>Enter the API key in HelloHost Settings &gt; Payments</li>
+</ol>
+<h3 id="supported-payment-methods">Supported Payment Methods</h3>
+<ul>
+<li><strong>iDEAL</strong> - Popular in the Netherlands</li>
+<li><strong>Credit Card</strong> - Visa, Mastercard, American Express</li>
+<li><strong>SEPA Direct Debit</strong> - Automated recurring payments</li>
+<li><strong>PayPal</strong> - International payments</li>
+<li><strong>Bancontact</strong> - Popular in Belgium</li>
+<li><strong>Sofort</strong> - European bank transfers</li>
+<li><strong>Apple Pay</strong> - Mobile payments</li>
+<li><strong>Google Pay</strong> - Mobile payments</li>
+<li>And many more supported by Mollie</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>Payment Links</strong> - Generate payment links for invoices</li>
+<li><strong>Subscription Billing</strong> - Automated recurring payments via Laravel Cashier</li>
+<li><strong>Refunds</strong> - Process full and partial refunds</li>
+<li><strong>Mandates</strong> - SEPA direct debit mandate management</li>
+<li><strong>Webhooks</strong> - Real-time payment status updates</li>
+<li><strong>Multi-currency</strong> - Support for multiple currencies</li>
+</ul>
+<h2 id="domain-registrars">Domain Registrars</h2>
+<p>HelloHost supports several domain registrars. We recommend using OXXA for the best experience.</p>
+<h3 id="oxxa">OXXA</h3>
+<p>OXXA provides a big selection of domain TLDs available for direct registration. An account on their platform is required to use the connection.</p>
+<p>More information about OXXA can be found here: <a href="https://www.oxxa.com/">https://www.oxxa.com/</a></p>
+<p><strong>Supported features:</strong></p>
+<ul>
+<li>Domain listing - View all registered domains</li>
+<li>Domain registration - Register new domains</li>
+<li>Domain transfer - Transfer domains from other registrars</li>
+<li>DNS management - Full DNS zone editing (A, AAAA, CNAME, MX, TXT, etc.)</li>
+<li>Domain locking - Lock/unlock domains</li>
+<li>Auth codes - Request EPP/auth codes for transfers</li>
+<li>Auto-renewal management - Enable/disable auto-renewal</li>
+<li>Contact management - Update domain contacts</li>
+<li>WHOIS privacy - Enable WHOIS privacy protection</li>
+</ul>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Create a reseller account at OXXA</li>
+<li>Obtain your API credentials from the OXXA dashboard</li>
+<li>Enter the API credentials in HelloHost Settings &gt; Domain Registrars</li>
+<li>Test the connection and start managing domains</li>
+</ol>
+<h3 id="versio">Versio</h3>
+<p>We provide limited support for Versio. An account on their platform is required to use the connection.</p>
+<p>More information: <a href="https://www.versio.nl/">https://www.versio.nl/</a></p>
+<p><strong>Supported features:</strong></p>
+<ul>
+<li>Domain listing - View registered domains</li>
+<li>Auto-renewal management - Enable/disable auto-renewal</li>
+</ul>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Create a reseller account at Versio</li>
+<li>Obtain API credentials</li>
+<li>Configure in HelloHost Settings &gt; Domain Registrars</li>
+</ol>
+<p><strong>Note:</strong> Versio integration has limited functionality compared to OXXA. For full domain management features, we recommend using OXXA.</p>
+<h2 id="hosting-servers">Hosting Servers</h2>
+<p>We provide support for several of the more common hosting management platforms. This feature is currently under development and being extended. In order to use these connections you will either need a server or reseller account, and an API key to connect the servers directly.</p>
+<h3 id="cpanel">cPanel</h3>
+<p>cPanel is one of the most popular web hosting control panels.</p>
+<p>More information: <a href="https://cpanel.net/">https://cpanel.net/</a></p>
+<p><strong>Supported features:</strong></p>
+<ul>
+<li>Create accounts - Automatically provision hosting accounts</li>
+<li>Delete accounts - Remove hosting accounts</li>
+<li>Account management - Basic account operations</li>
+</ul>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Ensure you have WHM (Web Host Manager) access</li>
+<li>Generate an API token in WHM</li>
+<li>Add server connection in HelloHost Settings &gt; Hosting Servers</li>
+<li>Configure cPanel as the server type</li>
+<li>Enter server hostname and API credentials</li>
+</ol>
+<p><strong>Requirements:</strong>
+* WHM root access or reseller account
+* API token authentication enabled
+* HTTPS access to WHM API</p>
+<h3 id="directadmin">DirectAdmin</h3>
+<p>DirectAdmin is a lightweight and fast web hosting control panel.</p>
+<p>More information: <a href="https://www.directadmin.com/">https://www.directadmin.com/</a></p>
+<p><strong>Supported features:</strong></p>
+<ul>
+<li>Create accounts - Automatically provision hosting accounts</li>
+<li>Delete accounts - Remove hosting accounts</li>
+</ul>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Ensure you have DirectAdmin admin or reseller access</li>
+<li>Generate API credentials</li>
+<li>Add server connection in HelloHost Settings &gt; Hosting Servers</li>
+<li>Configure DirectAdmin as the server type</li>
+<li>Enter server details and credentials</li>
+</ol>
+<p><strong>Requirements:</strong>
+* Admin or reseller level access
+* API access enabled
+* HTTPS access to DirectAdmin</p>
+<h2 id="file-storage">File Storage</h2>
+<h3 id="amazon-s3">Amazon S3</h3>
+<p>HelloHost supports Amazon S3 for scalable and reliable file storage.</p>
+<p>More information: <a href="https://aws.amazon.com/s3/">https://aws.amazon.com/s3/</a></p>
+<p><strong>Features:</strong></p>
+<ul>
+<li><strong>Scalable Storage</strong> - Unlimited storage capacity</li>
+<li><strong>High Availability</strong> - 99.99% uptime SLA</li>
+<li><strong>Secure</strong> - Encrypted at rest and in transit</li>
+<li><strong>Cost-effective</strong> - Pay only for what you use</li>
+<li><strong>Multi-region</strong> - Store files close to your users</li>
+</ul>
+<p><strong>Supported File Types:</strong></p>
+<ul>
+<li>Client attachments</li>
+<li>Invoice PDFs</li>
+<li>Service images</li>
+<li>Task attachments</li>
+<li>Backups</li>
+</ul>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Create an AWS account</li>
+<li>Create an S3 bucket in your preferred region</li>
+<li>Create an IAM user with S3 access</li>
+<li>Generate access keys for the IAM user</li>
+<li>Configure S3 credentials in HelloHost environment settings</li>
+<li>Set bucket name and region</li>
+</ol>
+<p><strong>Required Permissions:</strong></p>
+<ul>
+<li><code>s3:PutObject</code> - Upload files</li>
+<li><code>s3:GetObject</code> - Download files</li>
+<li><code>s3:DeleteObject</code> - Delete files</li>
+<li><code>s3:ListBucket</code> - List bucket contents</li>
+</ul>
+<h2 id="email-delivery">Email Delivery</h2>
+<h3 id="postmark">Postmark</h3>
+<p>For reliable transactional email delivery, HelloHost integrates with Postmark.</p>
+<p>More information: <a href="https://postmarkapp.com/">https://postmarkapp.com/</a></p>
+<p><strong>Features:</strong></p>
+<ul>
+<li><strong>High Deliverability</strong> - Optimized for transactional emails</li>
+<li><strong>Fast Delivery</strong> - Emails delivered in seconds</li>
+<li><strong>Detailed Analytics</strong> - Open rates, bounce tracking, spam complaints</li>
+<li><strong>Email Templates</strong> - Use Postmark's template system</li>
+<li><strong>Webhook Support</strong> - Real-time delivery notifications</li>
+</ul>
+<p><strong>Supported Email Types:</strong></p>
+<ul>
+<li>Invoice notifications</li>
+<li>Payment confirmations</li>
+<li>Order notifications</li>
+<li>Task updates</li>
+<li>Account activation emails</li>
+<li>Password resets</li>
+<li>Custom notifications</li>
+</ul>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Create a Postmark account</li>
+<li>Create a server in Postmark</li>
+<li>Verify your sending domain</li>
+<li>Copy your Server API Token</li>
+<li>Configure in HelloHost Settings &gt; Mail</li>
+<li>Select Postmark as your mail driver</li>
+</ol>
+<h2 id="translation-services">Translation Services</h2>
+<h3 id="deepl">DeepL</h3>
+<p>HelloHost integrates with DeepL for high-quality automated translations in the ticket workflow.</p>
+<p>More information: <a href="https://www.deepl.com/">https://www.deepl.com/</a></p>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Create a DeepL API account</li>
+<li>Subscribe to a plan (Free or Pro)</li>
+<li>Copy your API authentication key</li>
+<li>Configure in HelloHost environment settings</li>
+<li>Use translation features in content management</li>
+</ol>
+<h2 id="performance-monitoring">Performance Monitoring</h2>
+<h3 id="google-lighthouse">Google Lighthouse</h3>
+<p>HelloHost integrates with Google Lighthouse for website performance monitoring through the Solutionsio service.</p>
+<p><strong>Features:</strong></p>
+<ul>
+<li><strong>Performance Scores</strong> - Overall website performance metrics</li>
+<li><strong>Desktop &amp; Mobile</strong> - Separate scores for different devices</li>
+<li><strong>Historical Tracking</strong> - Track performance changes over time</li>
+<li><strong>Multiple Metrics:</strong></li>
+<li>Performance</li>
+<li>Accessibility</li>
+<li>Best Practices</li>
+<li>SEO</li>
+<li><strong>Automated Syncing</strong> - Regular performance data updates</li>
+</ul>
+<p><strong>Use Cases:</strong></p>
+<ul>
+<li>Monitor client website performance</li>
+<li>Track improvements after optimizations</li>
+<li>Report on hosting service quality</li>
+<li>Identify performance issues proactively</li>
+</ul>
+<p><strong>Setup:</strong></p>
+<ol>
+<li>Contact solutions.io for API access</li>
+<li>Obtain API credentials</li>
+<li>Configure in HelloHost settings</li>
+<li>Add PageSpeed reports for client websites</li>
+<li>Reports will sync automatically</li>
+</ol>
+<h2 id="configuration">Configuration</h2>
+<p>All connector configurations can be managed in the HelloHost settings panel:</p>
+<ol>
+<li>Log in to your HelloHost admin account</li>
+<li>Navigate to Settings from the account menu</li>
+<li>Select the appropriate section (Payments, Domain Registrars, Hosting Servers, etc.)</li>
+<li>Enter your API credentials and configuration</li>
+<li>Test the connection to verify setup</li>
+<li>Save and activate the integration</li>
+</ol>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="connection-issues">Connection Issues</h3>
+<p>If you experience connection problems:</p>
+<ul>
+<li><strong>Verify API credentials</strong> - Ensure keys are copied correctly</li>
+<li><strong>Check API permissions</strong> - Verify your account has necessary permissions</li>
+<li><strong>Test API endpoint</strong> - Confirm the service is accessible from your server</li>
+<li><strong>Review firewall rules</strong> - Ensure outbound connections are allowed</li>
+<li><strong>Check service status</strong> - Verify the third-party service is operational</li>
+</ul>
+<h3 id="api-limits">API Limits</h3>
+<p>Most services have API rate limits:</p>
+<ul>
+<li><strong>Mollie</strong> - Generous limits for most operations</li>
+<li><strong>OXXA</strong> - Rate limits vary by operation type</li>
+<li><strong>Versio</strong> - Conservative rate limits</li>
+<li><strong>DeepL</strong> - Character limits based on subscription</li>
+</ul>
+<p>Monitor your usage to avoid hitting limits. HelloHost will handle rate limiting gracefully and queue operations when necessary.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2025 <a href="https://solutions.io/"  target="_blank" rel="noopener">solutions.io</a>  
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+    
+  </body>
+</html>

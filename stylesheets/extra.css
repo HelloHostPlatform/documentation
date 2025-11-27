@@ -1,0 +1,8 @@
+:root {
+  --md-primary-fg-color: #3b43f2;
+  --md-primary-fg-color--light: #3b43f2;
+}
+
+.md-logo img {
+  min-height: 70px;
+}
